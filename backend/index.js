@@ -1,13 +1,15 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import peopleRoutes from './routes/people.js';
-import dotenv from 'dotenv';
-import cors from 'cors';
+let express =require('express');
+let bodyParser =require( 'body-parser');
+const peopleRoutes =require('./routes/people.js');
+let cors = require('cors')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const app = express();
-const PORT = 5000;
+const PORT =process.env.PORT|| 5000;
 
-dotenv.config();
+
 app.use(bodyParser.json());
 app.use(cors())
 
