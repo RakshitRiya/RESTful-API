@@ -1,5 +1,5 @@
-import express from 'express';
-import {getPeople,getUserById,createUser,updateUser ,deleteUser} from '../controllers/people.js';
+const express =require( 'express');
+const {getPeople,getUserById,createUser,updateUser ,deleteUser} =require(  '../controllers/people.js');
 
 const router = express.Router();
 
@@ -9,4 +9,4 @@ router.get('/people/:id',getUserById);
 router.put('/people/:id',updateUser);
 router.delete('/remove/:id',deleteUser);
 
-export default router;
+module.exports= router;
