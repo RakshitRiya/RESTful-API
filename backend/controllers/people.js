@@ -1,11 +1,11 @@
-import { v4 as uuidv4 } from 'uuid';
+let { v4 : uuidv4 }= require('uuid');
 let people = [];
 
-export const getPeople = (req,res)=>{
+exports.getPeople = (req,res)=>{
     res.send(people);
 };
 
-export const createUser = (req,res)=>{
+exports.createUser = (req,res)=>{
     const newPerson = req.body;
     const newPersonId = uuidv4();
     const newPersonWithId = {...newPerson, id:newPersonId};
@@ -13,13 +13,13 @@ export const createUser = (req,res)=>{
     res.send(`Person with the name ${newPerson.firstName} is pushed to the array!`);
 };
 
-export const getUserById = (req,res)=>{
+exports.getUserById = (req,res)=>{
     const { id } = req.params;
     const foundPerson = people.find((person) => person.id === id)
     res.send(foundPerson);
 };
 
-export const updateUser = (req,res)=>{
+exports.updateUser = (req,res)=>{
     const { id } = req.params;
     const {firstName,lastName,age} = req.body;
     const personToBeUpdated = people.find((person)=>person.id === id);
@@ -36,7 +36,7 @@ export const updateUser = (req,res)=>{
     res.send(`User with the id: ${id} has been updated`)
 };
 
-export const deleteUser = (req,res) => {
+exports.deleteUser = (req,res) => {
     const { id } = req.params;
     people = people.filter((person)=>person.id !== id);
     res.send(`User with id: ${id} is deleted`);
