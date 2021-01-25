@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Fetch API</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h4 class="m-2"><u>Create a New User:</u>(using POST /api/people)</h4>OR
+                    <h4 class="m-2"><u>Update a User:</u>(using PUT /api/people/:id)</h4>
+                </div>
+                <div class="col-md-6">                   
+                    <form class="add-user-form">
+                        <div class="form-group">
+                            <label for="firstname">Firstname:</label>
+                            <input type="text" class="form-control" id="firstname" minlength="3" required>
+                            <label for="lastname">Lastname:</label>
+                            <input type="text" class="form-control" id="lastname" minlength="3" required>
+                            <label for="age">Age:</label>
+                            <input type="number" class="form-control" id="age" min="0" maxlength="2" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Create/Update User</button>
+                    </form>
+                </div>
+            </div>
+            <h4 class="m-4"><u>List of people:</u> (using GET /api/people)</h4>
+            <div class="user-list row"></div>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
